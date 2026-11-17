@@ -8,7 +8,8 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'cbm_bomberos',
   waitForConnections: true,
-  connectionLimit: 10,
+  connectionLimit: 3, // Reducido a 3 para no superar el límite de conexiones del servidor
+  queueLimit: 0,
   dateStrings: true,
 });
 
